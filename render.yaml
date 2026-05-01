@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: lexuz-telegram-bot
+    env: python
+    region: frankfurt          # O'zbekistonga yaqinroq
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false            # Render dashboard da qo'lda kiritiladi
+      - key: WEBHOOK_URL
+        sync: false            # https://lexuz-telegram-bot.onrender.com
+      - key: PORT
+        value: 10000           # Render default port
